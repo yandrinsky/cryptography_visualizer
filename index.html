@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Визуализатор</title>
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="hacking pop_up hide">
+    <div class="pop_up_title">Взлом</div>
+    <i class="fas fa-times close_pop_up" id="close_hacking_btn"></i>
+    <div class="hacking_wrapper"></div>
+</div>
+
+<div id="app">
+    <div class="background_dark hide"></div>
+
+    <div class="app_commands pop_up hide">
+        <div class="app_commands_text">
+            <div class="app_commands_error"></div>
+            <p class="commands_title">Командная консоль</p>
+            <i class="fas fa-times close_pop_up" id="close_commands_btn"></i>
+            <div class="app_commands_tabs">
+                <div class="app_commands_tab app_commands_active" id="tab_self">Свой</div>
+                <div class="app_commands_tab" id="tab_message">Тайное сообщение</div>
+                <div class="app_commands_tab" id="tab_sign">Электронная подпись</div>
+                <div class="app_commands_tab" id="tab_coin">Подбрасывание монетки</div>
+                <div class="app_commands_tab" id="tab_money">Электронные деньги</div>
+            </div>
+        </div>
+
+        <textarea name="" id="" cols="30" rows="10" class="app_commands_field" tabindex="1"></textarea>
+        <div class="app_commands_wrapper">
+            <button class="app_commands_btn app_btn">Начать</button>
+        </div>
+
+    </div>
+
+    <div class="app_play_settings pop_up hide">
+        <i class="fas fa-times close_pop_up" id="close_play_settings_btn"></i>
+        <div class="app_play_settings_title">
+            Настройки воспроизведения
+        </div>
+        <div class="app_play_settings_wrapper">
+            <div class="app_play_by_steps">
+                <div class="radio_wrapper">
+                    <label for="play_time_steps">По шагам</label>
+                    <input type="radio" name="play_type" id="play_time_steps" value="steps">
+                </div>
+
+            </div>
+            <div class="app_play_by_video">
+                <div class="radio_wrapper">
+                    <label for="play_by_video">Как видео</label>
+                    <input type="radio" name="play_type" id="play_by_video" value="video" checked>
+                </div>
+                <h3>Длительность кадра</h3>
+                <input type="number" min="300" max="10000" value="1500" id="play_by_video_duration"><p class="">мс</p>
+            </div>
+            <div class="app_play_by_flash">
+                <div class="radio_wrapper">
+                    <label for="play_by_flash">Моментально</label>
+                    <input type="radio" name="play_type" id="play_by_flash" value="flash">
+                </div>
+            </div>
+        </div>
+
+        <button class="app_play_settings_btn app_btn">Начать</button>
+    </div>
+
+    <div class="app_users"></div>
+
+    <div class="app_buttons">
+        <div class="app_buttons_cell" id="add_user_btn"><i class="fas fa-user-plus cell_item app_buttons_item"></i></div>
+        <div class="app_buttons_cell" id="get_kit_btn"><i class="fas fa-boxes cell_item app_buttons_item"></i></div>
+        <div class="app_buttons_cell" id="log_back"><i class="fas fa-undo-alt cell_item app_buttons_item"></i></div>
+        <div class="app_buttons_cell" id="log_next"><i class="fas fa-redo-alt cell_item app_buttons_item"></i></div>
+        <div class="app_buttons_cell" id="console"><i class="fas fa-terminal cell_item app_buttons_item"></i></i></div>
+        <div class="app_buttons_cell" id="algorithm"><i class="fas fa-align-justify cell_item app_buttons_item"></i></i></div>
+    </div>
+
+    <div class="app_inventory__title">Инвентарь</div>
+    <div class="app_inventory"></div>
+    <div class="app_trash" ><i class="fas fa-trash inventory_item" data-instance="Trash" data-id="none"></i></div>
+</div>
+
+<div class="block_app hide">
+    <div class="block_app_wrapper">
+        <div class="block_app_title">:(</div>
+        <div class="block_app_text">Приложение не поддерживает экраны шириной менее 912px</div>
+        <div class="block_app_text">Возможно, браузер запущен в оконном режиме</div>
+    </div>
+
+</div>
+
+</body>
+
+
+<script src="js/fast.js"></script>
+<script src="js/Store.js"></script>
+<script src="js/UI.js"></script>
+<script src="js/Dispatcher.js"></script>
+
+</html>
