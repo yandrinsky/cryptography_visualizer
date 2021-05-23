@@ -52,6 +52,9 @@ body{
     opacity: 0.6;
     z-index: 3;
 }
+.scroll_block{
+    overflow: hidden;
+}
 
 .box{
     width: 40px;
@@ -625,6 +628,15 @@ body{
         grid-auto-rows: 80px;
     }
 
+}
+
+@media screen and (max-height: 640px) {
+    .app_users{
+        grid-template-rows: 70px;
+    }
+    .app_buttons{
+        grid-auto-rows: 7F0px;
+    }
 }
 
 @media screen and (max-width: 710px){

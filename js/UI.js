@@ -49,16 +49,22 @@ let UI = {
 
         buttonsCellsRender(){
 
-            let buttonsExist = UI.selectors.buttonsTable.children.length + 1
+            let buttonsExist = UI.selectors.buttonsTable.children.length + 2
             let height;
 
-            if(window.innerWidth > 1366 && window.innerHeight > 768){
-                height = 100;
-            } else {
-                height = 80;
+            height = document.querySelector("#add_user_btn").getBoundingClientRect().height;
+            function onlyPositive(num){
+                if(num < 0){
+                    return 0;
+                } else {
+                    return num
+                }
             }
+            let haveHeight = window.innerHeight - buttonsExist * height
+            let needToAdd = Math.floor((haveHeight)  / height)
+            console.log(haveHeight, needToAdd);
 
-            for(let i = 0; i < Math.floor((window.innerHeight - buttonsExist * height) / height); i++){
+            for(let i = 0; i < 1 + onlyPositive(needToAdd); i++){
                 UI.selectors.buttonsTable.insertAdjacentHTML("beforeend", "<div class=\"app_buttons_cell\"></div>");
             }
         },
@@ -432,12 +438,14 @@ let UI = {
         },
 
         openPlaySettings(e){
-            UI.selectors.backgroundDark.classList.remove("hide")
+            UI.selectors.backgroundDark.classList.remove("hide");
+            document.body.classList.add("scroll_block");
             UI.selectors.playSetWindow.classList.remove('hide');
         },
 
         closePlaySettings(e){
             UI.selectors.backgroundDark.classList.add("hide")
+            document.body.classList.remove("scroll_block");
             UI.selectors.playSetWindow.classList.add('hide');
         },
 
@@ -468,6 +476,7 @@ let UI = {
 
         openCommands(e){
             UI.selectors.backgroundDark.classList.remove("hide");
+            document.body.classList.add("scroll_block");
             UI.selectors.commandsField.parentNode.classList.remove("hide");
             UI.selectors.commandsField.focus();
 
@@ -484,6 +493,7 @@ let UI = {
 
         closeCommands(e){
             UI.selectors.backgroundDark.classList.add("hide");
+            document.body.classList.remove("scroll_block");
             UI.selectors.commandsField.parentNode.classList.add("hide");
             //скрываем поле ошибки ошибку
             UI.selectors.commandsError.classList.remove("app_commands_error_show");
